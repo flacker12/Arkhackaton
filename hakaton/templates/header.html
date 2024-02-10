@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-dark" style="font-family: Comfortaa">
+	<div class="container-fluid">
+		<nav class="navbar bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="">
+					<img
+						src="https://abrakadabra.fun/uploads/posts/2021-12/1640528661_1-abrakadabra-fun-p-serii-chelovek-na-avu-1.png"
+						alt="Bootstrap"
+						width="50"
+						height="50"
+					/>
+				</a>
+			</div>
+		</nav>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active text-white" aria-current="page" href="/"
+						>Home</a
+					>
+				</li>
+				{% if session['loggedin'] != True %}
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/register/">Register</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/login/">Log in</a>
+				</li>
+				{% endif %}
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/home/">Main</a>
+				</li>
+				{% if session['loggedin'] and session['roleId'] == 1 %}
+
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/requestspost/">Admin</a>
+				</li>
+				{% endif %} {% if session['loggedin'] and session['roleId'] == 2 %}
+
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/requestmaster/">Master</a>
+				</li>
+
+				{% endif %} {% if session['loggedin'] %}
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/request/">Request</a>
+				</li>
+				{%endif%}
+			</ul>
+			<form class="d-flex" role="search">
+				<input
+					class="form-control me-2"
+					type="search"
+					placeholder="Search"
+					aria-label="Search"
+				/>
+				<button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+</nav>
